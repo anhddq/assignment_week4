@@ -25,11 +25,7 @@ CompleteStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name= 'md-checkbox-outline'
     />
   ),
 };
@@ -47,7 +43,10 @@ const AllStack = createStackNavigator(
 AllStack.navigationOptions = {
   tabBarLabel: 'All',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon 
+      focused={focused} 
+      name= 'ios-add-circle-outline' 
+    />
   ),
 };
 
@@ -63,7 +62,9 @@ const ActiveStack = createStackNavigator(
 ActiveStack.navigationOptions = {
   tabBarLabel: 'Active',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon 
+      focused={focused} 
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
