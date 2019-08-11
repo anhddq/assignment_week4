@@ -39,4 +39,4 @@ const styles=StyleSheet.create({
         fontSize:40,
         color:'gray',
     }
-})
+});
