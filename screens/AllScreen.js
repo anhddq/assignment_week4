@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { ScrollView, StyleSheet,View,Text, TextInput,Button} from 'react-native';
+import { ScrollView, StyleSheet,View,Text, TextInput,Button, KeyboardAvoidingView} from 'react-native';
 import {TODOS} from '../constants/ToDos';
 import TodoItem from '../components/TodoItem';
 
@@ -53,22 +53,29 @@ export default class AllScreen extends Component {
   }
   render() {
     const {todoList, inputText} =this.state; 
-    return <ScrollView style={styles.container}>
-      {
-        todoList.map(item =>{
-          return(
-            <TodoItem data={item}
-            onPressButton={() =>this.onPressTodoItem(item.id)}/>
-          )
-        })
-      }
-      <TextInput 
-        style={styles.input} 
-        onChangeText={this.onChange}
-        value={inputText}
-      />
-      <Button title='Suibmit' onPress={this.onSuibmit} style={styles.suibmitButton}/>
-    </ScrollView>
+    return  <KeyboardAvoidingView
+      enabled
+      behavior="padding"
+      style={styles.keyboarAvoidding}
+    >
+      <ScrollView style={styles.container}>
+        {
+          todoList.map(item =>{
+            return(
+              <TodoItem data={item}
+              onPressButton={() =>this.onPressTodoItem(item.id)}/>
+            )
+          })
+        }
+        <TextInput 
+          style={styles.input} 
+          onChangeText={this.onChange}
+          value={inputText}
+          placeholder="add some action"
+        />
+        <Button title='Suibmit' onPress={this.onSuibmit} style={styles.suibmitButton}/>
+      </ScrollView>    
+    </KeyboardAvoidingView>    
   }
 }
 
@@ -89,9 +96,13 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     marginRight:10,
     marginLeft:10,
-    borderRadius: 12,
+    borderRadius: 12,    
   },
   suibmitButton:{
 
+  },
+  keyboarAvoidding:{
+    flex: 1,
+    justifyContent: 'space-between',
   }
 });

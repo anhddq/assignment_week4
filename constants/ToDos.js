@@ -34,9 +34,4 @@ export const TODOS = [
       status: 'Active',
       body: 'Spend some more time thinking'
     },
-    {
-      id: 8,
-      status: 'Active',
-      body: 'Use knowledge gained at CoderSchool to build new todo app'
-    }
   ];
